@@ -5,25 +5,25 @@ const TableRow = () => {
     <div>
       <tr>
         <td>
-          <div class="product">
+          <div className="product">
             <img src="https://picsum.photos/100/120" alt="" />
-            <div class="info">
-              <div class="name">Nome do produto</div>
-              <div class="category">Categoria</div>
+            <div className="info">
+              <div className="name">Nome do produto</div>
+              <div className="category">Categoria</div>
             </div>
           </div>
         </td>
         <td>R$ 120</td>
         <td>
-          <div class="qty">
-            <button><i class='bx bx-minus'></i></button>
+          <div className="qty">
+            <button><i className='bx bx-minus'></i></button>
             <span>2</span>
-            <button><i class='bx bx-plus'></i></button>
+            <button><i className='bx bx-plus'></i></button>
           </div>
         </td>
         <td>R$ 240</td>
         <td>
-          <button class="remove"><i class='bx bx-x'></i></button>
+          <button className="remove"><i className='bx bx-x'></i></button>
         </td>
       </tr>  
     </div>

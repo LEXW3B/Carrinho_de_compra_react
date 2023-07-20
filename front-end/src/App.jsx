@@ -2,17 +2,18 @@ import React from 'react';
 
 import './styles.scss';
 import TableRow from './TableRow';
+import PageHeader from './layout/PageHeader';
+import PageTitle from './layout/PageTitle';
+import Summary from './Summary';
 
 function App() {
   return (
     <>
-      <header>
-        <span>Carrinho de compras <b>LEXW3B</b></span>
-      </header>
+      <PageHeader />
 
       <main>
-        <div class="page-title">Seu carrinho</div>
-        <div class="content">
+        <PageTitle data={'Seu carrinho'} />
+        <div className="content">
           <section>
             <table>
               <thead>
@@ -31,28 +32,7 @@ function App() {
             </table>
           </section>
           <aside>
-            <div class="box">
-              <header>Resumo da compra</header>
-              <div class="info">
-                <div>
-                  <span>Sub-total</span><span>R$ 418</span>
-                </div>
-
-                <div>
-                  <span>Frete</span><span>Gratuito</span>
-                </div>
-
-                <div>
-                  <button>Adicionar cupom de desconto <i class='bx bx-right-arrow-alt'></i></button>
-                </div>
-              </div>
-              <footer>
-                <span>Total</span>
-                <span>R$ 418</span>
-              </footer>
-            </div>
-
-            <button>Finalizar compras</button>
+            <Summary />
           </aside>
         </div>
       </main>
