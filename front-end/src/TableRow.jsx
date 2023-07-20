@@ -2,7 +2,7 @@ import React from 'react'
 
 const TableRow = () => {
   return (
-    <div>
+    <>
       <tr>
         <td>
           <div className="product">
@@ -26,7 +26,7 @@ const TableRow = () => {
           <button className="remove"><i className='bx bx-x'></i></button>
         </td>
       </tr>  
-    </div>
+    </>
   );
 }
 
