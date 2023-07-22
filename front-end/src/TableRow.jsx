@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TableRow = ({data}) => {
+const TableRow = ({data, handleRemoveItem}) => {
   return (
     <>
       <tr>
@@ -29,7 +29,9 @@ const TableRow = ({data}) => {
         </td>
         <td>R$ {data.price * data.quantity}</td>
         <td>
-          <button className="remove"><i className='bx bx-x'></i></button>
+          <button className="remove" onClick={ () => { handleRemoveItem(data) }}>
+            <i className='bx bx-x'></i>
+          </button>
         </td>
       </tr>  
     </>

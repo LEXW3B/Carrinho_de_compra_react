@@ -41,10 +41,15 @@ function App() {
     });
   }
 
-  const handleRemoveItem = () => {
+  const handleRemoveItem = (item) => {
     // remoção
+    console.log('Disparou  handleRemoveItem');
+    console.log({item});
 
-
+    api.delete(`/cart/${item._id}`).then((response) => {
+      console.log(response);
+      fetchData();
+    });
   }
 
   const handleUpdateItem = () => {
@@ -78,7 +83,7 @@ function App() {
               </thead>
 
               <tbody>
-                {cart.map((item) => <TableRow key={item._id} data={item} />)}
+                {cart.map((item) => <TableRow key={item._id} data={item} handleRemoveItem={handleRemoveItem} />)}
                 {cart.length === 0 && (
                   <tr>
                     <td colSpan={'5'} style={{textAlign: 'center'}}>
