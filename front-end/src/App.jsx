@@ -78,7 +78,7 @@ function App() {
               </thead>
 
               <tbody>
-                {cart.map((item) => <TableRow />)}
+                {cart.map((item) => <TableRow key={item._id} data={item} />)}
                 {cart.length === 0 && (
                   <tr>
                     <td colSpan={'5'} style={{textAlign: 'center'}}>
