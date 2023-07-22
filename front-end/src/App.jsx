@@ -52,10 +52,24 @@ function App() {
     });
   }
 
-  const handleUpdateItem = () => {
+  const handleUpdateItem = (item, action) => {
     // atualização de quantidade
+    console.log({item});
+    let newQuantity = item.quantity;
 
+    if (action === 'decrease') {
+      if (newQuantity === 1) return;
+      newQuantity -= 1;
+    }
+    if (action === 'increase') newQuantity += 1;
+    
+    const newData = {...item, quantity: newQuantity}
+    console.log({ newData });
+    api.put(`/cart/${item._id}`, newData).then( (response) => {
+      console.log({response});
 
+      fetchData();
+    });
   }
 
   return (
@@ -83,7 +97,14 @@ function App() {
               </thead>
 
               <tbody>
-                {cart.map((item) => <TableRow key={item._id} data={item} handleRemoveItem={handleRemoveItem} />)}
+                {cart.map((item) => (
+                  <TableRow
+                    key={item._id}
+                    data={item}
+                    handleRemoveItem={handleRemoveItem}
+                    handleUpdateItem={handleUpdateItem}
+                  />
+                ))}
                 {cart.length === 0 && (
                   <tr>
                     <td colSpan={'5'} style={{textAlign: 'center'}}>
