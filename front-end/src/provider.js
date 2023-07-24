@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'https://crudcrud.com/api/fbd2ec4ccf9b4e599354d5d4f37aee6b/', /*insira a url do cudcrud*/
-  timeout: 1000,
+  baseURL: 'https://crudcrud.com/api/c9afebae19dd4273886ac2f553f05a30', /*insira a url do cudcrud*/
+  timeout: 10000,
   // headers: {'X-Custom-Header': 'foobar'} esta parte da erro
 });

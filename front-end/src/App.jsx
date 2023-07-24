@@ -58,20 +58,37 @@ function App() {
     let newQuantity = item.quantity;
 
     if (action === 'decrease') {
-      if (newQuantity === 1) return;
+      if (newQuantity === 1) {
+        return;
+      }
       newQuantity -= 1;
     }
-    if (action === 'increase') newQuantity += 1;
+    if (action === 'increase') {
+      newQuantity += 1;
+    }
     
     const newData = {...item, quantity: newQuantity}
+    delete newData._id;
+
     console.log({ newData });
     api.put(`/cart/${item._id}`, newData).then( (response) => {
-      console.log({response});
+      console.log({ response });
 
       fetchData();
     });
   }
 
+  const getTotal = () => {
+    let sum = 0;
+
+    for (let item of cart) {
+      sum += item.price * item.quantity;
+    }
+    return sum;
+  }
+  
+  const cartTotal = getTotal(); 
+ 
   return (
     <>
       <PageHeader />
@@ -116,7 +133,7 @@ function App() {
             </table>
           </section>
           <aside>
-            <Summary />
+            <Summary total={cartTotal} />
           </aside>
         </div>
       </main>
